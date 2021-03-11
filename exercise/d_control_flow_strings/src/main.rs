@@ -14,6 +14,14 @@ fn main() {
 
     // This consumes the `args` vector to iterate through each String
     for arg in args {
+
+        if arg == "sum" {
+            sum()
+        } else if arg == "double" {
+            double()
+        } else {
+            count(arg)
+        }
         // 1a. Your task: handle the command-line arguments!
         //
         // - If arg is "sum", then call the sum() function
@@ -32,6 +40,10 @@ fn sum() {
     // and add them all together (increment the `sum` variable).  Hint: You should get 255
     // Run it with `cargo run sum`
 
+    for i in 7..=23 {
+        sum += i
+    }
+
 
     println!("The sum is {}", sum);
 }
@@ -43,6 +55,11 @@ fn double() {
     // by 2) before it is larger than 500.  Increment `count` each time through the loop. Run it
     // with `cargo run double`  Hint: The answer is 9 times.
 
+    while x < 500 {
+        x *= 2;
+        count += 1;
+    }
+
 
     println!("You can double x {} times before it is larger than 500", count);
 }
@@ -52,6 +69,16 @@ fn count(arg: String) {
     // You will need to count your loops, somehow.  Run it with `cargo run bananas`
     //
     // print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+
+    let mut count = 0;
+    'ted: loop {
+        print!("{} ", arg);
+        count += 1;
+
+        if count == 8 {
+            break 'ted
+        }
+    }
 
 
     println!(); // This will output just a newline at the end for cleanliness.
